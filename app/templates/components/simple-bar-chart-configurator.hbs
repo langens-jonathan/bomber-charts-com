@@ -1,0 +1,131 @@
+<div class="card" style="width:775px; margin-top:15px;">
+{{#paper-content class="md-padding centered-form"}}
+  <h1>Simple Bar Chart</h1>
+  {{#if showConfiguration}}
+  <h3>Configuration</h3>
+  {{paper-input value=width onChange=(action (mut width)) label="width"}}
+  {{paper-input value=height onChange=(action (mut height)) label="height"}}
+  {{paper-input value=title onChange=(action (mut title)) label="title"}}
+  {{paper-input value=barPadding onChange=(action (mut barPadding)) label="bar padding"}}
+<br>
+  {{#paper-checkbox value=forceShowLabels primary=true  onChange=(action (mut forceShowLabels))}}
+  force show labels
+    {{/paper-checkbox}}
+    
+  {{#paper-checkbox value=hideLabels primary=true  onChange=(action (mut hideLabels))}}
+  hide labels
+    {{/paper-checkbox}}
+<br>    
+  {{#paper-checkbox value=showXAxis primary=true  onChange=(action (mut showXAxis))}}
+  show x axis
+    {{/paper-checkbox}}
+
+  {{#paper-checkbox value=showYAxis primary=true  onChange=(action (mut showYAxis))}}
+  show y axis
+    {{/paper-checkbox}}
+    
+<br>    
+  {{#paper-checkbox value=animate primary=true  onChange=(action (mut animate))}}
+  animate
+    {{/paper-checkbox}}
+
+  {{paper-slider class="flex md-accent" primary=true min=3 max=65 value=numberOfEntries onChange=(action "updateNumberOfEntries")}}
+ {{/if}}
+ {{#if showCode}}
+ <h3>Code</h3>
+ <p>You can copy paste the following code fragment into your ember template</p>
+ {{#if copyTemplateWithData}}
+  <code style="background-color:#EAEAEA;">
+ {{codeWithData}}
+ </code> <br>
+{{#paper-button onClick=(action "showCodeWithData")}}without data{{/paper-button}} <br>
+ {{else}}
+ <code style="background-color:#EAEAEA;">
+ {{code}}
+ </code> <br>
+{{#paper-button onClick=(action "showCodeWithData")}}with data{{/paper-button}} <br>
+ <br>
+ {{/if}}
+ <br>
+ <br>
+ {{/if}}
+ {{#if showStyling}}
+<h3>Styling</h3>
+<h5>Style Sheet</h5>
+<p>In the app.css or app.scss file you can specify the style for the following elements:
+<ul><li>class simple-bar-chart-bar</li><li>class simple-bar-chart-text</li><li>class simple-bar-chart-pane</li></ul>
+</p>
+<p>For example:<br>
+<code><div style="text-align:left; padding: 55px; margin:auto;">
+.simple-bar-chart-bar { <br>
+  stroke: black; <br>
+  stroke-width: 1; <br>
+  fill: #857885; <br>
+} <br>
+.simple-bar-chart-bar:hover { <br>
+    fill: #e05038; <br>
+} <br>
+.simple-bar-chart-text { <br>
+  fill: white; <br>
+  font-family: sans-serif; <br>
+} <br>
+.simple-bar-chart-pane { <br>
+    background-color: #FFFFFF; <br>
+    color: #A4BEF3; <br>
+} <br>
+.simple-bar-chart-title { <br>
+} <br>
+.simple-bar-chart-x-axis { <br>
+} <br>
+</div></code></p>
+<p>Additionally each datapoint can be separately styled by adding properties to the object describing them (see data section). The full list is: <ul><li>fill</li><li>stroke</li><li>stroke-width</li><li>hover</li></ul> Or in code: <br>
+<code>
+{"data": 15
+"label": "a",
+"fill": "#850085",
+"stroke": "orange",
+"hover": "green",
+"stroke-width": 3
+}
+</code>
+</p>
+ {{/if}}
+ {{#if showData}}
+ <h3>Data</h3>
+ <p>This component expects an array of objects to be passed to the dataArray property in the template that wants to consume it.</p>
+ <p>Such a data object is expected to be formatted in the following way:<br>
+    <code>
+{"data": 15
+"label": "a",
+"fill": "#850085",
+"stroke": "orange",
+"hover": "green",
+"stroke-width": 3
+}
+    </code>
+ </p>
+
+{{#if showDataModification}}
+<p>You can enter the data below: </p>
+{{paper-input textarea=true block=true label="Data" maxlength=5000 passThru=(hash rows=15 maxRows=25)
+    value=newData onChange=(action (mut newData))}}
+{{#paper-button onClick=(action "loadData")}}loadData{{/paper-button}}
+{{#paper-button onClick=(action "showDataModification")}}hide data modification part{{/paper-button}}
+{{else}}
+{{#paper-button onClick=(action "showDataModification")}}modify the data live{{/paper-button}}
+{{/if}}
+<br>
+ {{/if}}
+{{#paper-button onClick=(action "showConfiguration")}}Configuration{{/paper-button}}
+{{#paper-button onClick=(action "showCode")}}Code{{/paper-button}}
+{{#paper-button onClick=(action "showStyling")}}Styling{{/paper-button}}
+{{#paper-button onClick=(action "showData")}}Data{{/paper-button}}
+{{/paper-content}}
+</div>
+
+<br>
+<br>
+
+<div style="width:775px; margin:auto;">
+{{simple-bar-chart dataArray=dataArray width=width height=height barPadding=barPadding title=title forceShowLabels=forceShowLabels hideLabels=hideLabels showXAxis=showXAxis showYAxis=showYAxis animate=animate}}
+</div>

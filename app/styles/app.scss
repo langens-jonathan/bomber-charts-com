@@ -1,0 +1,40 @@
+@import 'ember-paper';
+$primary: "#553D36";
+$accent: "#857885";
+$warn: "#e05038";
+
+md-slider.md-default-theme.md-primary .md-thumb:after, md-slider.md-primary .md-thumb:after {
+  border-color: #553D36;
+  background-color: #553D36;
+  }
+
+md-slider.md-default-theme.md-primary .md-track.md-track-fill, md-slider.md-primary .md-track.md-track-fill {
+  background-color: #553D36;
+}
+
+.simple-bar-chart-bar {
+  stroke: black;
+  stroke-width: 1;
+  fill: #857885;
+}
+
+.simple-bar-chart-bar:hover {
+    fill: #e05038;
+}
+
+.simple-bar-chart-text {
+  fill: white;
+  font-family: sans-serif;
+}
+
+
+.simple-bar-chart-pane {
+    background-color: #EEEEEE;
+    color: #A4BEF3;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin:auto;
+}

@@ -1,5 +1,12 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#paper-toolbar}}
+  <div class="md-toolbar-tools" style="background-color:#553D36;">
+    <div style="margin:auto;">
+    {{#paper-button onClick="gotoHome"}}Home{{/paper-button}}
+    {{#paper-button onClick="gotoGettingStarted"}}Get Started{{/paper-button}}
+    {{#paper-button onClick="gotoSBC"}}Simple Bar Chart{{/paper-button}}
+    {{#paper-button onClick="gotoDocs"}}Docs{{/paper-button}}
+    </div>
+  </div>
+{{/paper-toolbar}}
 
 {{outlet}}
