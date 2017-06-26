@@ -5,8 +5,8 @@ export default Ember.Controller.extend({
 	gotoComponents () {
 	    this.transitionToRoute("components");
 	},
-	gotoSBC () {
-	    this.transitionToRoute("SBC");
+	gotoComps () {
+	    this.transitionToRoute("comps");
 	},
 	gotoHome () {
 	    this.transitionToRoute("home");

@@ -7,14 +7,13 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('components', function() {
-    this.route('simpleBarChart');
-  });
   this.route('home');
   this.route('docs');
   this.route('sbc');
   this.route('gettingstarted');
-  this.route('SBC');
+  this.route('comps', function() {
+    this.route('sbc');
+  });
 });
 
 export default Router;
