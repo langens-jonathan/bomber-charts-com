@@ -1,13 +1,19 @@
 <div style="left: 0px; top: 0px; padding-top:28px; width:275px; height:100%; min-height:1000px; background-color:#87A0B2">
 <ul style="list-style-type:none; color:#FFFFFF; padding:0px; margin: 10px;">
   <li>{{#paper-button onClick=(action "gotoSimpleBarChart")}}Simple Bar Chart{{/paper-button}}</li>
+  <li>{{#paper-button onClick=(action "gotoSimplePieChart")}}Simple Pie Chart{{/paper-button}}</li>
   <li>{{#paper-button onClick=(action "gotoSimpleBarChart")}}Horizontal Bar Chart{{/paper-button}}</li>
-  <li>{{#paper-button onClick=(action "gotoSimpleBarChart")}}Simple Pie Chart{{/paper-button}}</li>
-  <li>{{#paper-button onClick=(action "gotoSimpleBarChart")}}Simple Donut Chart{{/paper-button}}</li>
+  <li>{{#paper-button onClick=(action "gotoSimpleBarChart")}}Simple Box Chart{{/paper-button}}</li>
+  <li>{{#paper-button onClick=(action "gotoSimpleBarChart")}}Simple Line Chart{{/paper-button}}</li>
+  <li>{{#paper-button onClick=(action "gotoSimpleBarChart")}}Simple Line Area Chart{{/paper-button}}</li>
   <li>{{#paper-button onClick=(action "gotoSimpleBarChart")}}Simple Geographical Chart{{/paper-button}}</li>
 </ul>
 </div>
 <div style="width:800px; position: absolute; top: 55px; left: 280px;">
-{{outlet}}
+{{#if notChosenYet}}
+  {{simple-bar-chart-configurator}}
+{{else}}
+  {{outlet}}
+{{/if}}
 </div>
 

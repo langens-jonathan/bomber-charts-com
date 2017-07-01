@@ -6,27 +6,24 @@ export default Ember.Component.extend({
 
     height: 500,
 
-    barPadding: 4,
-
     title: "example chart",
-
-    forceShowLabels: false,
 
     hideLabels: false,
 
-    showXAxis: true,
+    innerRadius: 0,
 
-    showYAxis: true,
+    outerRadius: 200,
 
-    numberOfEntries: 16,
+    colorScheme: ["#f4e04d", "#cee397", "#8db1ab", "#587792","#f2ed6f", "#7d7e75", "#8d86c9", "#73a6ad", "#9b97b2", "#f4a261", "#2a9d8f", "#86cb92", "#71b48d", "#404e7c", "#9be564", "#d19c1d", "#7d451b"],
+
+    numberOfEntries: 6,
 
     dataArray: [],
 
     newData: "",
 
-    code: Ember.computed('width', 'height', 'barPadding',
-			 'title', 'forceShowLabel', 'showXAxis',
-			 'showYAxis', function() {
+    code: Ember.computed('width', 'height',
+			 'title', function() {
 			     var width = this.get('width');
 			     var height = this.get('height');
 			     var barPadding = this.get('barPadding');
@@ -99,29 +96,9 @@ export default Ember.Component.extend({
 	var names = ["Olin", "Trudi", "Desirae", "Clorinda", "Bryan", "Celesta", "Eleanore", "Javier", "Autumn", "Lana", "Tasha", "Karlyn", "Shawnna", "Rory", "Enrique", "Lorrie", "Tammy", "Verlie", "Carmina", "Raeann", "Rich", "Donita", "Rufus", "Migdalia", "Thresa", "Alethea", "Nubia", "Suzi", "Celina", "Irwin", "Dorthea", "Ivory", "Ashley", "Amie", "Kathaleen", "Ethan", "Teresa", "Marline", "Christal", "Hallie", "Callie", "Myrtis", "Nicola", "Marco", "Filiberto", "Titus", "Jasper", "Alpha", "Trish", "Tori", "Trula", "Nicol", "Minh", "Elyse", "Chad", "Pamula", "Savanna", "Marcelina", "Argelia", "Rubin", "Leonarda", "Nina", "Theo", "Sharyn", "Hazel"];
 	for (var i = 0; i < comp.get("numberOfEntries") ; i++) {
 	    var newNumber = (Math.random() * 30) + 1;
-	    if(newNumber > 25)
-	    {
-		dataset.push({"data": Math.floor(newNumber),
-			      "label": names[i],
-			      "fill": "#658E9C",
-			      "stroke": "#514663",
-			      "hover": "#888",
-			      "stroke-width": 3
-			     });
-	    } else if (newNumber > 20)
-	    {
-		dataset.push({"data": Math.floor(newNumber),
-			      "label": names[i],
-			      "fill": "#514663",
-			      "stroke": "#514663",
-			      "hover": "#8CBA80",
-			      "stroke-width": 3
-			     });
-	    } else {
 		dataset.push({"data": Math.floor(newNumber),
 			      "label": names[i],
 			     });
-	    }
 	}
 	comp.set("dataArray", dataset);
 	comp.set("newData", JSON.stringify(dataset));

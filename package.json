@@ -15,7 +15,7 @@
     "test": "ember test"
   },
   "devDependencies": {
-    "bomber-charts": "0.0.3",
+    "bomber-charts": "0.0.4",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^3.0.0",
     "ember-cli": "2.13.2",

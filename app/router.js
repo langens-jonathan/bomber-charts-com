@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('gettingstarted');
   this.route('comps', function() {
     this.route('sbc');
+    this.route('spc');
   });
 });
 
